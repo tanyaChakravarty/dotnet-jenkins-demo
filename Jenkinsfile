@@ -31,6 +31,7 @@ stage ('Restore Packages') {
 //     }
 stage('Build') {
      steps {
+            unstash 'source'
             dir('src\\dotnet-jenkins-demo')
             script{
                 bat "dotnet publish -c release -o /app --no-restore" 
