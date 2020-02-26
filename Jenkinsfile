@@ -20,7 +20,7 @@ stage ('Restore Packages') {
              deleteDir()
              unstash 'source'
              script {
-                 bat 'dotnet restore "src\\dotnet-jenkins-demo.sln" '
+                 bat '"C:\Program Files\dotnet\dotnet.exe" restore "src\\dotnet-jenkins-demo.sln" '
              }             
           }
         }
@@ -35,7 +35,7 @@ stage('Build') {
             unstash 'source'
             dir('src\\dotnet-jenkins-demo'){
                 script{
-                    bat "dotnet publish -c release -o /app --no-restore" 
+                    bat '"C:\Program Files\dotnet\dotnet.exe" publish -c release -o /app --no-restore' 
                 }
             }
       }
