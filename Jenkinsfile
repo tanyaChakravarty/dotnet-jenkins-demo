@@ -31,7 +31,10 @@ stage ('Restore Packages') {
 //     }
 stage('Build') {
      steps {
-            bat "\"${tool 'msbuild'}\\MSBuild.exe\" src\\jenkins-demo.sln /p:Configuration=Debug /p:Platform=\"Any CPU\" /p:ProductVersion=1.0.0.${env.BUILD_NUMBER}"
+            dir('src\\dotnet-jenkins-demo')
+            script{
+                bat "dotnet publish -c release -o /app --no-restore" 
+            }
       }
    }
  }
