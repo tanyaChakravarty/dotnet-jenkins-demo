@@ -20,7 +20,7 @@ stage ('Restore Packages') {
              deleteDir()
              unstash 'source'
              script {
-                 bat '"C:\\Program Files\\dotnet\\dotnet.exe" restore "dotnet-jenkins-demo\\dotnet-jenkins-demo.sln" '
+                 bat '"C:\\Program Files\\dotnet\\dotnet.exe" restore "src\\dotnet-jenkins-demo.sln" '
              }             
           }
         }
@@ -31,7 +31,7 @@ stage ('Restore Packages') {
 //     }
 stage('Build') {
      steps {
-            bat "\"${tool 'msbuild'}\\MSBuild.exe\" dotnet-jenkins-demo\\jenkins-demo.sln /p:Configuration=Debug /p:Platform=\"Any CPU\" /p:ProductVersion=1.0.0.${env.BUILD_NUMBER}"
+            bat "\"${tool 'msbuild'}\\MSBuild.exe\" src\\jenkins-demo.sln /p:Configuration=Debug /p:Platform=\"Any CPU\" /p:ProductVersion=1.0.0.${env.BUILD_NUMBER}"
       }
    }
  }
