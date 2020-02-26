@@ -21,11 +21,7 @@ stage ('Restore Packages') {
              }             
           }
         }
-// stage('Clean') {
-//       steps {
-//             bat '"C:\\Program Files\\dotnet\\dotnet.exe" clean'
-//        }
-//     }
+
 stage('Build') {
      steps {
             deleteDir()
