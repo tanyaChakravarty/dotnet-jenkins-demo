@@ -31,6 +31,7 @@ stage ('Restore Packages') {
 //     }
 stage('Build') {
      steps {
+            deleteDir()
             unstash 'source'
             dir('src\\dotnet-jenkins-demo')
             script{
