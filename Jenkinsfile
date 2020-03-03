@@ -17,7 +17,7 @@ stage ('Restore Packages') {
              deleteDir()
              unstash 'source'
              script {
-                 bat '"C:\\Program Files\\dotnet\\dotnet.exe" restore "src\\dotnet-jenkins-demo.sln" '
+                 bat '"C:\\Program Files (x86)\\dotnet\\dotnet.exe" restore "src\\dotnet-jenkins-demo.sln" '
              }             
           }
         }
